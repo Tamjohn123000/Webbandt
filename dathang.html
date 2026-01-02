@@ -46,52 +46,98 @@
 <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
     <div class="col-11 col-sm-8 col-md-6 col-lg-4">
 
-        <form method="POST" action="xuly_dathang.php" class="p-4 bg-white rounded shadow">
+        <form
+ action="https://docs.google.com/forms/d/e/1FAIpQLSfBYlfMW3wdqxtA57u91VwKl6eFESWznmsXyw4xCj0RS3wFkg/formResponse"
 
-            <h3 class="text-center text-danger mb-4">THÔNG TIN ĐẶT HÀNG</h3>
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitted=true;"
+  class="p-4 bg-white rounded shadow"
+>
 
-            <div class="mb-3">
-                <label class="form-label">Họ tên</label>
-                <input type="text" name="hoten" class="form-control" required>
-            </div>
+  <h3 class="text-center text-danger mb-4">THÔNG TIN ĐẶT HÀNG</h3>
 
-            <div class="mb-3">
-                <label class="form-label">Số điện thoại</label>
-                <input type="text" name="sdt" class="form-control" required>
-            </div>
+  <!-- HỌ TÊN -->
+  <div class="mb-3">
+    <label class="form-label">Họ tên</label>
+    <input
+      type="text"
+      name="entry.1766832394"
+      class="form-control"
+      required
+    >
+  </div>
 
-            <div class="mb-3">
-                <label class="form-label">Địa chỉ</label>
-                <input type="text" name="diachi" class="form-control" required>
-            </div>
+  <!-- SỐ ĐIỆN THOẠI -->
+  <div class="mb-3">
+    <label class="form-label">Số điện thoại</label>
+    <input
+      type="text"
+      name="entry.1747624576"
+      class="form-control"
+      required
+    >
+  </div>
 
-            <!-- CHỌN SẢN PHẨM CÓ ẢNH -->
-            <div class="mb-3">
-                <label class="form-label">Chọn sản phẩm</label>
+  <!-- ĐỊA CHỈ -->
+  <div class="mb-3">
+    <label class="form-label">Địa chỉ</label>
+    <input
+      type="text"
+      name="entry.723344644"
+      class="form-control"
+      required
+    >
+  </div>
 
-                <div class="dropdown w-100">
-                    <button class="btn btn-outline-secondary dropdown-toggle w-100 text-start"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            id="btnSanPham">
-                        -- Chọn sản phẩm --
-                    </button>
+  <!-- CHỌN SẢN PHẨM -->
+  <div class="mb-3">
+    <label class="form-label">Chọn sản phẩm</label>
 
-                    <ul class="dropdown-menu w-100" id="listSanPham"></ul>
-                </div>
+    <div class="dropdown w-100">
+      <button
+        class="btn btn-outline-secondary dropdown-toggle w-100 text-start"
+        type="button"
+        data-bs-toggle="dropdown"
+        id="btnSanPham"
+      >
+        -- Chọn sản phẩm --
+      </button>
 
-                <!-- input ẩn gửi về PHP -->
-                <input type="hidden" name="sanpham" id="sanpham" required>
-            </div>
+      <ul class="dropdown-menu w-100" id="listSanPham"></ul>
+    </div>
 
-            <div class="mb-3">
-                <label class="form-label">Giá</label>
-                <input type="text" class="form-control" id="gia" name="gia" readonly required>
-            </div>
+    <!-- gửi về Google Form -->
+    <input
+      type="hidden"
+      name="entry.1833699140"
+      id="sanpham"
+      required
+    >
+  </div>
 
-            <button type="submit" class="btn btn-danger w-100">ĐẶT HÀNG</button>
-            
-        </form>
+  <!-- GIÁ -->
+  <div class="mb-3">
+    <label class="form-label">Giá</label>
+    <input
+      type="text"
+      class="form-control"
+      name="entry.831898211"
+      id="gia"
+      readonly
+      required
+    >
+  </div>
+
+  <button type="submit" class="btn btn-danger w-100">
+    ĐẶT HÀNG
+  </button>
+
+</form>
+
+<!-- iframe ẩn để không reload -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
 <div class="order-actions">
                  <a href="https://zalo.me/0921786312?text=Tôi%20muốn%20đặt%20hàng"
                      class="btn btn-danger order-btn">
@@ -181,6 +227,17 @@ danhSachSanPham.forEach(sp => {
     };
 
     list.appendChild(li);
+});
+</script>
+<script>
+let submitted = false;
+
+document.querySelector("form").addEventListener("submit", function () {
+  setTimeout(() => {
+    alert("🎉 Đặt hàng thành công! Chúng tôi sẽ liên hệ sớm.");
+    this.reset();
+    document.getElementById("btnSanPham").innerHTML = "-- Chọn sản phẩm --";
+  }, 600);
 });
 </script>
 
