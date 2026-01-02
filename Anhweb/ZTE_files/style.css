@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title-link {
+    text-decoration: none;   /* bỏ gạch chân */
+    color: inherit;          /* giữ màu chữ */
+    display: inline-block;
+}
+
+.title-box {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.title-box:hover {
+    text-shadow: 0 0 10px gold;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background-image: url("Anhweb/nen1.jpg"); /* ảnh nền của bạn */
+    background-size: cover;       /* phủ kín */
+    background-repeat: no-repeat; /* không lặp */
+    background-position: center;  /* căn giữa */
+    background-attachment: fixed; /* cuộn vẫn giữ nền */
+}
+
+
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 80px;   /* chỉnh kích thước logo */
+    height: auto;
+}
+
+
+ .title-box {
+    font-weight: bold;
+    display: inline-block;
+    padding: 15px 40px;
+    border: 3px solid #FFD700;
+    color: #FFD700;
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+}
+
+.navbar-brand {
+    color: #ff8c00 !important; /* dark orange */
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: orange;
+}
+
+/* Mục đang được chọn */
+.navbar a.active {
+    color: orange;
+    border-bottom: 2px solid orange;
+    font-weight: 700; /* hoặc 800 */
+    
+}
+/* chung */
+.brand-logo {
+    border-radius: 12px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* từng hãng */
+.logo-apple {
+    width: 160px;
+    height: 55px;
+}
+
+.logo-samsung {
+    width: 180px;
+}
+
+.logo-xiaomi {
+    width: 180px;
+}
+
+.logo-oppo {
+    width: 180px;
+     height: 55px;
+}
+
+
+.logo-honor {
+    width: 160px;
+}
+
+.logo-zte {
+    width: 180px;
+}
+
+.logo-nokia {
+    width: 180px;
+}
+.logo-sony {
+    width: 180px;
+}
+
+.logo-nothing {
+    width: 160px;
+}
+
+.logo-infinix {
+    width: 180px;
+}
+
+.logo-realme {
+    width: 180px;
+    height: 55px;
+}
+
+.logo-vivo {
+    width: 180px;
+    height: 55px;
+}
+/* hover */
+.brand-logo:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Card sản phẩm */
+.product-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Ảnh */
+.product-card img {
+    padding: 15px;
+}
+
+/* Tiêu đề */
+.product-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Giá */
+.price-new {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.price-old {
+    color: gray;
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-left: 6px;
+}
+
+/* Rating */
+.rating {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.favorite {
+    color: #007bff;
+    margin-left: 10px;
+}
+
+/* Badge */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: #fff;
+    font-size: 12px;
+}
+
+.installment-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 12px;
+}
+/* Thông số */
+.specs {
+    margin-top: 8px;
+}
+
+.specs span {
+    display: inline-block;
+    background: #f1f3f5;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+/* Ưu đãi */
+.promo {
+    background: #eaf3ff;
+    color: #0d6efd;
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+/* Trả góp */
+.installment-text {
+    font-size: 12px;
+    color: #333;
+    margin-top: 6px;
+}

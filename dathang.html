@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamjohnmobile</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+	<header class="py-5 border-bottom text-white"
+        style="background-image: url('Anhweb/nen2.jpg');
+               background-size: cover;
+               background-position: center;">
+        <div class="container text-center">
+        <img src="Anhweb/logo.jpg" alt="logo" class="logo">
+
+    <div class="container text-center">
+        <a href="index.html" class="title-link">
+        <div class="title-frame">
+             <img src="Anhweb/112.png" alt="TAM JOHN MOBILE" class="title-image">
+      </div>
+    </a>
+    </div>
+  </header>
+
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2b9bcf;">
+	<div class="container">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav mx-auto">
+					<li class="nav-item" ><a class="nav-link fw-bold" href="index.html">Trang chủ</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="sanpham.html">Sản phẩm</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="lienhe.html">Liên hệ</a></li>
+				</ul>
+			</div>
+	</div>
+	</nav>
+
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+
+        <form method="POST" action="xuly_dathang.php" class="p-4 bg-white rounded shadow">
+
+            <h3 class="text-center text-danger mb-4">THÔNG TIN ĐẶT HÀNG</h3>
+
+            <div class="mb-3">
+                <label class="form-label">Họ tên</label>
+                <input type="text" name="hoten" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Số điện thoại</label>
+                <input type="text" name="sdt" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Địa chỉ</label>
+                <input type="text" name="diachi" class="form-control" required>
+            </div>
+
+            <!-- CHỌN SẢN PHẨM CÓ ẢNH -->
+            <div class="mb-3">
+                <label class="form-label">Chọn sản phẩm</label>
+
+                <div class="dropdown w-100">
+                    <button class="btn btn-outline-secondary dropdown-toggle w-100 text-start"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            id="btnSanPham">
+                        -- Chọn sản phẩm --
+                    </button>
+
+                    <ul class="dropdown-menu w-100" id="listSanPham"></ul>
+                </div>
+
+                <!-- input ẩn gửi về PHP -->
+                <input type="hidden" name="sanpham" id="sanpham" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Giá</label>
+                <input type="text" class="form-control" id="gia" name="gia" readonly required>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">ĐẶT HÀNG</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+const danhSachSanPham = [
+    { ten: "iPhone 17 Pro Max 256GB", gia: 37890000, img: "Anhweb/iphone 17 prmtrang.webp" },
+    { ten: "iPhone 17 Pro 256 GB", gia: 34390000, img: "Anhweb/iphone 17 pro.webp" },
+    { ten: "iPhone 16 Pro Max 256GB", gia: 30990000, img: "Anhweb/iphone 16 prm.webp" },
+    { ten: "iPhone 17 256GB", gia: 24690000, img: "Anhweb/iphone 17.webp" },
+    { ten: "iPhone 16 128GB", gia: 24590000, img: "Anhweb/iphone 16 128.webp" },
+     { ten: "iPhone 14 128GB", gia: 13690000, img: "Anhweb/iphone 14 128.webp" },
+    { ten: "iPhone Air 256GB", gia: 30590000, img: "Anhweb/iphone air.webp" },
+    { ten: "iPhone 16e 256GB", gia: 12490000, img: "Anhweb/iphone 16e.webp" },
+    { ten: "Samsung Galaxy S25 Ultra 12GB 256GB", gia: 27500000, img: "Anhweb/samsungs25ul.webp" },
+    { ten: "Samsung Galaxy Z Flip7 12GB 256GB", gia: 23490000, img: "Anhweb/samsungzfilp7.webp" },
+    { ten: "Samsung Galaxy A36 5G 8GB 128GB", gia: 7340000, img: "Anhweb/samsunga36.webp" },
+    { ten: "Samsung Galaxy A17 5G 8GB 128GB", gia: 6190000, img: "Anhweb/samsunga17.webp" },
+    { ten: "Samsung Galaxy A07 5G 4GB 128GB", gia: 3190000, img: "Anhweb/samsunga07.webp" },
+    { ten: "Samsung Galaxy S24 FE 5G 8GB 128GB", gia: 11490000, img: "Anhweb/samsungs24fe.webp" },
+    { ten: "Samsung Galaxy Z Fold7 12GB 512GB", gia: 44490000, img: "Anhweb/samsungzfold7.webp" },
+    { ten: "Samsung Galaxy M55 5G 8GB 256GB", gia: 6990000, img: "Anhweb/samsungm55.webp" },
+    { ten: "Xiaomi 15 Ultra 5G 16GB 1TB", gia: 24490000, img: "Anhweb/xiaomi15ul.webp" },
+    { ten: "Xiaomi 15T 5G 12GB 512GB", gia: 13990000, img: "Anhweb/Xiaomi15t.webp" },
+    { ten: "Xiaomi 15 5G 12GB 256GB", gia: 17490000, img: "Anhweb/xiaomi15.webp" },
+    { ten: "Redmi Note 14 Pro Plus 5G 8GB 256GB", gia: 8190000, img: "Anhweb/redminote14proplus.webp" },
+    { ten: "OPPO Find X9 Pro 16GB 512GB", gia: 32990000, img: "Anhweb/oppofindx9pro.webp" },
+    { ten: "OPPO FIND N5", gia: 44180000, img: "Anhweb/oppofindn5.webp" },
+    { ten: "OPPO Find N3 Flip 12GB 256GB", gia: 13990000, img: "Anhweb/oppofindn3flip.webp" },
+    { ten: "OPPO A6 Pro 8GB 256GB", gia: 8790000, img: "Anhweb/oppoa6pro.webp" },
+    { ten: "HONOR X9d 12GB 512GB", gia: 11990000, img: "Anhweb/honorx9d.webp" },
+    { ten: "HONOR X9c 5G 12GB 256GB", gia: 7090000, img: "Anhweb/honorx9c.webp" },
+    { ten: "HONOR Magic V5 16GB 512GB", gia: 42990000, img: "Anhweb/honormgv5.webp" },
+    { ten: "HONOR 400 5G 12GB 256GB", gia: 11990000, img: "Anhweb/honor400.webp" },
+    { ten: "ZTE Nubia Z60S Pro 12GB 256GB", gia: 11590000, img: "Anhweb/ztez60spr.webp" },
+    { ten: "Nubia Music NFC 4GB 128GB", gia: 209000, img: "Anhweb/nubiaNFC.webp" },
+    { ten: "Nubia Air 5G 8GB 256GB", gia: 5490000, img: "Anhweb/nubiaair.webp" },
+    { ten: "Nubia Neo 2 5G", gia: 4290000, img: "Anhweb/nubianeo2.webp" },
+    { ten: "Nokia 7.2", gia: 6190000, img: "Anhweb/nokia7.2.webp" },
+    { ten: "Nokia 3.2", gia: 3290000, img: "Anhweb/nokia3.2.webp" },
+    { ten: "Sony Xperia 1 VII 12GB 256GB", gia: 29990000, img: "Anhweb/sonyxperia1.webp" },
+    { ten: "Sony Xperia 10 VII 8GB 128GB", gia: 12690000, img: "Anhweb/sonyxperia10.webp" },
+    { ten: "Sony Xperia 1VI 12GB 256GB", gia: 22990000, img: "Anhweb/sonyxperia1vi.webp" },
+    { ten: "Nothing Phone 2A 5G 8GB 128GB", gia: 6990000, img: "Anhweb/nothing2a5g.webp" },
+    { ten: "Nothing Phone 3A 8GB 128GB", gia: 8490000, img: "Anhweb/nothing3a.webp" },
+    { ten: "Nothing Phone 2A Plus 5G 12GB 256GB", gia: 7890000, img: "Anhweb/nothing2aplus.webp" },
+    { ten: "Nothing Phone 2A 5G 8GB 128GB", gia: 8190000, img: "Anhweb/nothing2a5g12.webp" },
+    { ten: "Infinix Hot 40i 8GB 256GB", gia: 2490000, img: "Anhweb/infinixhot49i.webp" },
+    { ten: "Infinix Note 30 4G 8GB 256GB", gia: 3590000, img: "Anhweb/infinixnote30.webp" },
+    { ten: "realme 13+ 5G 8GB 256GB", gia: 6590000, img: "Anhweb/realme13+.webp" },
+    { ten: "realme C61 6GB 128GB", gia: 2790000, img: "Anhweb/realmec61.webp" },
+    { ten: "Vivo X300 Pro", gia: 34990000, img: "Anhweb/vivox300pro.jpg" },
+    { ten: "Vivo X300 Pro", gia: 23990000, img: "Anhweb/vivox300.jpg" }, 
+     
+];
+
+
+const list = document.getElementById("listSanPham");
+const btn = document.getElementById("btnSanPham");
+const inputSanPham = document.getElementById("sanpham");
+const inputGia = document.getElementById("gia");
+
+danhSachSanPham.forEach(sp => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <img src="${sp.img}" width="40" height="40" class="me-2 rounded">
+            <div>
+                <div class="fw-bold">${sp.ten}</div>
+                <small class="text-muted">${sp.gia.toLocaleString("vi-VN")} VNĐ</small>
+            </div>
+        </a>
+    `;
+
+    li.onclick = function () {
+        btn.innerHTML = `
+            <img src="${sp.img}" width="30" class="me-2 rounded">
+            ${sp.ten}
+        `;
+        inputSanPham.value = sp.ten + " - " + sp.gia;
+        inputGia.value = sp.gia.toLocaleString("vi-VN") + " VNĐ";
+    };
+
+    list.appendChild(li);
+});
+</script>
+
+</body>
+</html>
